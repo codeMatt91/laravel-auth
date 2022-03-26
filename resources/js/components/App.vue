@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    Benvenuti
+                <div>
+                    <Header />
                     <div>
                         I'm an example component.
                     </div>
@@ -14,5 +14,11 @@
 </template>
 
 <script>
-    name: App
+import Header from './Header.vue';
+export default{
+    name: App,
+    components: {
+        Header,
+    }
+}
 </script>
