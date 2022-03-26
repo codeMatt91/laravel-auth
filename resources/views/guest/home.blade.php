@@ -88,9 +88,7 @@
         @endif
 
         <div class="content">
-            <div class="title m-b-md">
-                <div id="root"></div>
-            </div>
+            <div id="root"></div>
         </div>
     </div>
 </body>

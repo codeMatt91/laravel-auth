@@ -1,14 +1,12 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
                 <div>
                     <Header />
                     <div>
-                        I'm an example component.
+                        Stiamo lavorando per voi
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </template>
@@ -16,7 +14,7 @@
 <script>
 import Header from './Header.vue';
 export default{
-    name: App,
+    name: "App",
     components: {
         Header,
     }

@@ -1922,11 +1922,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: App,
+  name: "App",
   components: {
     Header: _Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -37543,21 +37541,19 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c(
-          "div",
-          [
-            _c("Header"),
-            _vm._v(" "),
-            _c("div", [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
-          ],
-          1
-        ),
-      ]),
+      _c(
+        "div",
+        [
+          _c("Header"),
+          _vm._v(" "),
+          _c("div", [
+            _vm._v(
+              "\n                    Stiamo lavorando per voi\n                "
+            ),
+          ]),
+        ],
+        1
+      ),
     ]),
   ])
 }
