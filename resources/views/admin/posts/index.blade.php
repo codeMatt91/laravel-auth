@@ -41,7 +41,7 @@
 
                                 <form class="delete-form"
                                     action="{{ route('admin.posts.destroy', $post->id) }}"
-                                    method="post">
+                                    method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-sm btn-danger "
@@ -76,7 +76,7 @@
                 const confirmation = confirm(
                     'Are you sure you want to delete this?');
                 if (confirmation) e.target.submit();
-            });
+            })
         });
     </script>
 @endsection

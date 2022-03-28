@@ -46,7 +46,7 @@
     </div>
 @endsection
 
-@section('script')
+@section('scripts')
     <script>
         const placeholder =
             "https://icons.iconarchive.com/icons/ccard3dev/dynamic-yosemite/1024/Preview-icon.png";
