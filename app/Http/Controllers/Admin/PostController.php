@@ -95,6 +95,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('admin.posts.index', $post)->with('massage', 'il post $post-id è stato eliminato')->with('type', 'success');
+        return redirect()->route('admin.posts.index', $post)->with('massage', "il post '$post->id' è stato eliminato")->with('type', 'success');
     }
 }

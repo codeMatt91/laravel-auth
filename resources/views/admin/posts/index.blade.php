@@ -9,6 +9,12 @@
                     class="btn btn-sm btn-success">Aggiungi Post</a>
             </div>
         </header>
+        <!-- MESSAGGIO DI CONFERMA ELIMINAZIONE -->
+        @if (session('message'))
+            <div class="alert alert-{{ session('type') ?? 'info' }}">
+                {{ session('message') }}
+            </div>
+        @endif
         <table>
             <table class="table">
                 <thead>
@@ -31,21 +37,20 @@
                             <td>{{ $post->slug }}</td>
                             <td>{{ $post->created_at }}</td>
                             <td>{{ $post->updated_at }}</td>
-                            <td>
-                                <div class="d-flex">
-                                    <form
+                            <td class="d-flex">
+                                <div>
+                                    <form class="delete-form"
                                         action="{{ route('admin.posts.destroy', $post->id) }}"
                                         method="post">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn-sm btn-danger"
-                                            type="submit">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <button class="btn btn-sm btn-danger "
+                                            type="submit">Elimina</button>
                                     </form>
-                                    <a class="btn btn-sm btn-warning ml-2"
-                                        href="{{ route('admin.posts.edit', $post->id) }}"><i
-                                            class="fa-solid fa-pencil"></i>
+                                </div>
+                                <div>
+                                    <a class="btn btn-sm btn-warning m-0 ml-2 "
+                                        href="{{ route('admin.posts.edit', $post->id) }}">Modifica
                                     </a>
                                 </div>
                             </td>
@@ -56,5 +61,22 @@
                 </tbody>
             </table>
         </table>
+
+        @section('scripts')
+            <script>
+                // METODO PER APRIRE UNA MODALE E CHIEDERE CONFERMA ELIMINAZIONE
+                const delectForm = document.querySelectorAll('.delete-form');
+
+                deleteForm.forEach(form => {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+
+                        const accept = confirm(
+                            'Are you sure you want to delete this?');
+                        if (accept) e.target.submit();
+                    });
+                });
+            </script>
+        @endsection
     </div>
 @endsection
