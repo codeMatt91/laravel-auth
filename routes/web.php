@@ -22,6 +22,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->namespace('Admin')->
     Route::resource('posts', 'PostController');
 });
 
+// Qui gestisco tutte le rotte con Vue
 Route::get('{any?}', function () {
     return view('guest.home');
 })->where("any", ".*");
