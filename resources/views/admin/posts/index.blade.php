@@ -16,8 +16,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Slug</th>
-                        <th scope="col">Creato il</th>
-                        <th scope="col"></th>
+                        <th scope="col">Creato il:</th>
+                        <th scope="col">Modificato il:</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +30,19 @@
                             </td>
                             <td>{{ $post->slug }}</td>
                             <td>{{ $post->created_at }}</td>
-                            <td>Actions</td>
+                            <td>{{ $post->updated_at }}</td>
+                            <td>
+                                <form
+                                    action="{{ route('admin.posts.destroy', $post->id) }}"
+                                    method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-sm btn-danger"
+                                        type="submit">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <h1>Non ci sono post</h1>
