@@ -32,16 +32,22 @@
                             <td>{{ $post->created_at }}</td>
                             <td>{{ $post->updated_at }}</td>
                             <td>
-                                <form
-                                    action="{{ route('admin.posts.destroy', $post->id) }}"
-                                    method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-sm btn-danger"
-                                        type="submit">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex">
+                                    <form
+                                        action="{{ route('admin.posts.destroy', $post->id) }}"
+                                        method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-sm btn-danger"
+                                            type="submit">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <a class="btn btn-sm btn-warning ml-2"
+                                        href="{{ route('admin.posts.edit', $post->id) }}"><i
+                                            class="fa-solid fa-pencil"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     @empty
