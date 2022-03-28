@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -40,6 +41,8 @@ class PostController extends Controller
         $data = $request->all();
 
         $post = new Post();
+        $data['slug'] = Str::slug($request->title , '-');
+
         $post->fill($data);
         $post->save();
 
@@ -95,6 +98,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('admin.posts.index', $post)->with('massage', "il post '$post->id' è stato eliminato")->with('type', 'success');
+        return redirect()->route('admin.posts.index')->with('massage', "il post '$post->id' è stato eliminato")->with('type', 'success');
     }
 }

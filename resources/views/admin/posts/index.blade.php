@@ -38,16 +38,16 @@
                             <td>{{ $post->created_at }}</td>
                             <td>{{ $post->updated_at }}</td>
                             <td class="d-flex">
-                                <div>
-                                    <form class="delete-form"
-                                        action="{{ route('admin.posts.destroy', $post->id) }}"
-                                        method="post">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger "
-                                            type="submit">Elimina</button>
-                                    </form>
-                                </div>
+
+                                <form class="delete-form"
+                                    action="{{ route('admin.posts.destroy', $post->id) }}"
+                                    method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-sm btn-danger "
+                                        type="submit">Elimina</button>
+                                </form>
+
                                 <div>
                                     <a class="btn btn-sm btn-warning m-0 ml-2 "
                                         href="{{ route('admin.posts.edit', $post->id) }}">Modifica
@@ -61,22 +61,22 @@
                 </tbody>
             </table>
         </table>
-
-        @section('scripts')
-            <script>
-                // METODO PER APRIRE UNA MODALE E CHIEDERE CONFERMA ELIMINAZIONE
-                const delectForm = document.querySelectorAll('.delete-form');
-
-                deleteForm.forEach(form => {
-                    form.addEventListener('submit', (e) => {
-                        e.preventDefault();
-
-                        const accept = confirm(
-                            'Are you sure you want to delete this?');
-                        if (accept) e.target.submit();
-                    });
-                });
-            </script>
-        @endsection
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        // METODO PER APRIRE UNA MODALE E CHIEDERE CONFERMA ELIMINAZIONE
+        const deleteForms = document.querySelectorAll('.delete-form');
+
+        deleteForms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const confirmation = confirm(
+                    'Are you sure you want to delete this?');
+                if (confirmation) e.target.submit();
+            });
+        });
+    </script>
 @endsection

@@ -23,7 +23,7 @@
             <!-- IMMAGINE -->
             <div class="form-group">
                 <label for="image">Immagine</label>
-                <input type="text" class="form-control" id="image" name="image"
+                <input type="url" class="form-control" id="image" name="image"
                     value="{{ old('image', $post->image) }}">
             </div>
 
