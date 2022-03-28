@@ -45,10 +45,12 @@
                     <ul class="navbar-nav mr-auto">
 
                         <!-- section Posts accessble by admin  -->
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('admin.posts.index') ? 'active' : '' }}"
-                                href="{{ route('admin.posts.index') }}">Posts</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.posts.index') ? 'active' : '' }}"
+                                    href="{{ route('admin.posts.index') }}">Posts</a>
+                            </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,7 +82,7 @@
                                     <a class="dropdown-item"
                                         href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

@@ -20,6 +20,11 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('posts', 'PostController');
+   
+    //In questa rotta faccio si che se scrivo sull-url 'admin/qualsiasi cosa' mi manda in 404 e non su Vue
+    Route::get('/{any}', function(){
+        abort(404);
+    })->where('any', '.*');
 });
 
 // Qui gestisco tutte le rotte con Vue
